@@ -1,0 +1,13 @@
+{
+  "name": "stacked",
+  "version": "1.0.0",
+  "author": "Felix Gnass <fgnass@gmail.com>",
+  "description": "bundle multiple middleware functions into one stack",
+  "keywords": ["connect", "middleware", "stack"],
+  "homepage": "https://github.com/fgnass/stacked",
+  "main": "stacked.js",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/fgnass/stacked.git"
+  }
+}
