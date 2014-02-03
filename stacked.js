@@ -27,6 +27,7 @@ module.exports = function(/* fn1, fn2, ... */) {
     next()
   }
   handle.use = function(fn) {
+    if (typeof fn == 'object' && fn.handle) fn = fn.handle.bind(fn)
     layers.push(fn)
     return this
   }
@@ -39,6 +40,7 @@ module.exports = function(/* fn1, fn2, ... */) {
 function sub(mount, fn) {
 
   if (mount.substr(-1) != '/') mount += '/'
+  if (typeof fn == 'object' && fn.handle) fn = fn.handle.bind(fn)
 
   return function(req, res, next) {
     var url = req.url
