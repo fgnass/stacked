@@ -6,6 +6,12 @@ Stacked is a stand-alone, lightweight, zero-dependency version of
 It can be used to create modules that bundle multiple middleware functions
 into one.
 
+## Install
+
+```
+npm install stacked --save
+```
+
 ## Usage
 
 ```javascript
@@ -33,6 +39,13 @@ module.exports = stacked()
   .mount('/path', mounted)
 ```
 
+## Run Tests
+
+```
+npm install
+npm test
+```
+
 ### The MIT License (MIT)
 
 Copyright (c) 2014 Felix Gnass
@@ -54,5 +67,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-
