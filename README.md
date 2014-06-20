@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/fgnass/stacked.svg)](https://travis-ci.org/fgnass/stacked)
+
 # stacked
 
 Stacked is a stand-alone, lightweight, zero-dependency version of
@@ -6,13 +8,13 @@ Stacked is a stand-alone, lightweight, zero-dependency version of
 It can be used to create modules that bundle multiple middleware functions
 into one.
 
-## Install
+### Installation
 
 ```
 npm install stacked --save
 ```
 
-## Usage
+### Usage
 
 ```javascript
 var stacked = require('stacked')
@@ -39,14 +41,14 @@ module.exports = stacked()
   .mount('/path', mounted)
 ```
 
-## Run Tests
+### Run Tests
 
 ```
 npm install
 npm test
 ```
 
-### The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright (c) 2014 Felix Gnass
 
