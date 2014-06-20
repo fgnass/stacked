@@ -41,14 +41,13 @@ module.exports = function(/* fn1, fn2, ... */) {
 }
 
 function sub(mount, fn) {
-
   if (mount.substr(-1) != '/') mount += '/'
 
   return function(req, res, next) {
     var url = req.url
       , uri = req.uri
 
-    if (url.substr(0, mount.length) !== mount) return next()
+    if (url.substr(0, mount.length) !== mount && url.substr(0, mount.length) + '/' !== mount) return next()
 
     // modify the URL
     if (!req.realUrl) req.realUrl = url
