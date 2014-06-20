@@ -6,6 +6,12 @@ Stacked is a stand-alone, lightweight, zero-dependency version of
 It can be used to create modules that bundle multiple middleware functions
 into one.
 
+## Install
+
+```
+npm install stacked --save
+```
+
 ## Usage
 
 ```javascript
@@ -31,4 +37,11 @@ function mounted(req, res, next) {
 module.exports = stacked()
   .use(middleware)
   .mount('/path', mounted)
+```
+
+## Run Tests
+
+```
+npm install
+npm test
 ```
