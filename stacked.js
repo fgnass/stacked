@@ -1,11 +1,10 @@
 var URL = require('url')
 
 module.exports = function(/* fn1, fn2, ... */) {
-  var layers = Array.prototype.slice.call(arguments)
-  function handle(req, res, out) {
+  var handle = function (req, res, out) {
     var i = 0
     function next(err) {
-      var layer = layers[i++]
+      var layer = handle.layers[i++]
 
       if (!layer || res.headerSent) {
         // all done
@@ -26,25 +25,29 @@ module.exports = function(/* fn1, fn2, ... */) {
     }
     next()
   }
+  
+  handle.layers = Array.prototype.slice.call(arguments)
+  
   handle.use = function(fn) {
-    layers.push(fn)
+    handle.layers.push(fn)
     return this
   }
+  
   handle.mount = function(path, fn) {
     return this.use(sub(path, fn))
   }
+  
   return handle
 }
 
 function sub(mount, fn) {
-
   if (mount.substr(-1) != '/') mount += '/'
 
   return function(req, res, next) {
     var url = req.url
       , uri = req.uri
 
-    if (url.substr(0, mount.length) !== mount) return next()
+    if (url.substr(0, mount.length) !== mount && url.substr(0, mount.length) + '/' !== mount) return next()
 
     // modify the URL
     if (!req.realUrl) req.realUrl = url
