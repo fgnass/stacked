@@ -6,7 +6,7 @@ module.exports = function(/* fn1, fn2, ... */) {
     function next(err) {
       var layer = handle.layers[i++]
 
-      if (!layer || res.headerSent) {
+      if (!layer || res.headersSent) {
         // all done
         if (out) return out(err) // delegate to parent
 
